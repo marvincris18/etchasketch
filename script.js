@@ -1,29 +1,54 @@
 // Javascript File 
 
 const container = document.querySelector('.container');
-let htmlString = "";
-let numberOfRows = 16;
-let numbeOfColunms = 16;
+const createBtn = document.querySelector('#createBtn');
 
-if (container){
+createBtn.addEventListener('click',()=> {
+    const userInput = prompt("How many squares per side do you want? (max:100):  ");
+    const number = Number(userInput);
 
-    for(let i=0; i < numberOfRows ; i++ ){
-        htmlString += `<div class="row">\n`;
-        for (let j=0; j<numbeOfColunms;j++){
-            htmlString += `<div class="column"> </div>\n`;
+    if (!isNaN(number)) {
+        if (number > 0 && (number < 100 || number == 100))
+            generateGrid(number);
+        else
+            alert("Invalid input! Number must be between 1 and 100, inclusive");
+    } else {
+    alert("That's not a valid number!");
+    }
+});
+
+
+function generateGrid(number){
+   
+    let htmlString = "";
+    let numberOfRows = number;
+    let numberOfBoxes = number;
+    let boxWidth = `${960/numberOfBoxes}px`;
+
+
+    if (container){
+
+        for(let i=0; i < numberOfRows ; i++ ){
+            htmlString += `<div class="row">\n`;
+            for (let j=0; j<numberOfBoxes;j++){
+                htmlString += `<div class="box" style="width: ${boxWidth}; height:${boxWidth}"> </div>\n`;
+            }
+            htmlString += `</div>\n`;
         }
-        htmlString += `</div>\n`;
+
+        container.innerHTML = htmlString;
+            
+    } else {
+        console.log(`Can't find element class "Container"`);
     }
 
-    container.innerHTML = htmlString;
-        
-} else {
-    console.log(`Can't find element class "Container"`);
 }
 
+
+
 container.addEventListener('mouseout', function(event) {
-    console.log(event.target);
-    const cell = event.target.closest('.column');
+  
+    const cell = event.target.closest('.box');
     if (cell){
         cell.style.backgroundColor = randomColor();
     }

@@ -17,19 +17,17 @@
     flex: 0;
 }
 
-.column {
+.box {
     display:flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    width:  20px;
-    height: 20px;
     gap: 10px;   
-    border: 1px solid red;
+    border: 1px solid black;
 
 }
 
-div.column:hover {
+div.box:hover {
     background-color: blueviolet;
     transition: all 0.3s ease;
 
@@ -39,3 +37,21 @@ div.column:hover {
     background-color: random;
     transition: all 0.3s ease;
 }
+
+.container {
+    width : 960px;
+    
+
+}
+
+.primaryBtn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    height: 60px;
+    padding: 10px 20px; 
+    font-size: 18px;  
+    margin: 20px 0px;
+  }
+

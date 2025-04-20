@@ -34,3 +34,8 @@ div.column:hover {
     transition: all 0.3s ease;
 
 }   
+
+.passedBy {
+    background-color: random;
+    transition: all 0.3s ease;
+}

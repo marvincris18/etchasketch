@@ -1,0 +1,36 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding:0;
+    font-family: Hero,sans-serif;
+}
+
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex: 0;
+}
+
+.column {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width:  20px;
+    height: 20px;
+    gap: 10px;   
+    border: 1px solid red;
+
+}
+
+div.column:hover {
+    background-color: blueviolet;
+    transition: all 0.3s ease;
+
+}   
